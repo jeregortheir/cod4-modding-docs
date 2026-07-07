@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>VLCT Deathrun - Mapping Guide</title>
+    <meta name="description" content="Defensive GSC scripting guide for CoD4 Deathrun map makers - patterns, recipes, and survival rules that prevent server crashes.">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="theme-color" content="#0d1117">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='0' y='14' font-size='14'>🗺️</text></svg>">
+
+    <!-- Docsify base theme - DO NOT add layout overrides on top -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/dark.css">
+
+    <!-- Body & code fonts (system fallback if blocked) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /*  ===========================================================
+            VLCT Deathrun docs - color & typography overrides ONLY.
+            Layout (sidebar width, content left/right, paddings) is left
+            untouched so the default Docsify dark theme stays intact.
+            =========================================================== */
+
+        /* --- BASE --- */
+        body {
+            background: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        code, pre, kbd, .markdown-section pre code, .markdown-section code {
+            font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        /* --- LINKS --- */
+        a { color: #58a6ff; transition: color 0.15s ease; }
+        a:hover { color: #79c0ff; }
+
+        /* --- SIDEBAR --- */
+        .sidebar { background: #0e151f; border-right: 1px solid #1f2937; }
+        .sidebar > h1 a {
+            color: #ff6b35 !important;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .sidebar-nav strong {
+            color: #58a6ff;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+            margin: 1.2em 0 0.4em 0;
+            font-weight: 700;
+        }
+        .sidebar-nav a {
+            color: #9aa5b1;
+            font-size: 14px;
+            padding: 4px 0;
+            transition: color 0.15s ease, padding-left 0.15s ease;
+        }
+        .sidebar-nav a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .sidebar-nav .active > a {
+            color: #ff6b35 !important;
+            font-weight: 600;
+            border-right: 3px solid #ff6b35;
+        }
+
+        /* --- COLLAPSIBLE TOP CATEGORIES (For Mappers / For Modders) --- */
+        /* Top-level category links sit bigger/bolder, like section headers. */
+        .sidebar-nav > ul > li > a {
+            color: #58a6ff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 6px 0;
+        }
+        .sidebar-nav > ul > li > a:hover { color: #ffffff; }
+        /* Caret on categories that have children (plugin sets .collapse/.open). */
+        .sidebar-nav > ul > li.collapse > a::before,
+        .sidebar-nav > ul > li.open > a::before {
+            content: "\25B8";          /* ▸ */
+            display: inline-block;
+            width: 1em;
+            font-size: 11px;
+            color: #9aa5b1;
+            transition: transform 0.15s ease;
+        }
+        .sidebar-nav > ul > li.open > a::before { transform: rotate(90deg); }
+        /* Child items indented under a category. */
+        .sidebar-nav > ul > li > ul { margin-left: 0.7em; border-left: 1px solid #1f2937; padding-left: 0.6em; }
+
+        /* --- TOP NAVBAR --- */
+        .app-nav {
+            background: rgba(13, 17, 23, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #1f2937;
+        }
+        .app-nav a {
+            color: #c9d1d9;
+            font-size: 14px;
+        }
+        .app-nav a:hover {
+            color: #ff6b35;
+            background: transparent;
+        }
+
+        /* --- HEADINGS --- */
+        .markdown-section h1 {
+            color: #ff6b35;
+            font-weight: 700;
+            border-bottom: 2px solid #1f2937;
+            padding-bottom: 0.4em;
+            letter-spacing: -0.01em;
+        }
+        .markdown-section h2 {
+            color: #58a6ff;
+            font-weight: 600;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        .markdown-section h3 {
+            color: #c9d1d9;
+            font-weight: 600;
+            margin-top: 1.5em;
+        }
+        .markdown-section h4 { color: #c9d1d9; }
+
+        /* --- BODY TEXT --- */
+        .markdown-section p,
+        .markdown-section li { color: #d6dde6; line-height: 1.7; }
+        .markdown-section strong { color: #ffffff; }
+
+        /* --- INLINE CODE --- */
+        .markdown-section code {
+            background: #1a2433;
+            color: #ffb86c;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.88em;
+            font-weight: 500;
+            border: 1px solid #2d3748;
+        }
+
+        /* --- CODE BLOCKS --- */
+        .markdown-section pre {
+            background: #0d141f;
+            border-left: 3px solid #ff6b35;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+        .markdown-section pre > code {
+            background: transparent;
+            color: #e6edf3;
+            padding: 1em 1.2em;
+            font-size: 13.5px;
+            line-height: 1.55;
+            border: none;
+            font-weight: 400;
+        }
+        /* Prism token colors for GSC (highlighted as C) */
+        .token.comment { color: #768390; font-style: italic; }
+        .token.keyword { color: #ff7b72; }
+        .token.string { color: #a5d6ff; }
+        .token.function { color: #d2a8ff; }
+        .token.number { color: #79c0ff; }
+        .token.operator, .token.punctuation { color: #c9d1d9; }
+        .token.boolean { color: #ffa657; }
+
+        /* --- BLOCKQUOTES (callouts) --- */
+        .markdown-section blockquote {
+            background: #0e1b2a;
+            border-left: 4px solid #ff6b35;
+            padding: 0.8em 1.2em;
+            border-radius: 0 6px 6px 0;
+            margin: 1.5em 0;
+            color: #d6dde6;
+        }
+        .markdown-section blockquote p { color: #d6dde6; margin: 0.4em 0; }
+        .markdown-section blockquote strong { color: #ff6b35; }
+
+        /* --- TABLES --- */
+        .markdown-section table {
+            border: 1px solid #1f2937;
+            border-radius: 6px;
+            overflow: hidden;
+            border-collapse: collapse;
+        }
+        .markdown-section th {
+            background: #0e1b2a;
+            color: #ff6b35;
+            font-weight: 600;
+            text-align: left;
+            border-bottom: 2px solid #1f2937;
+            padding: 10px 14px;
+        }
+        .markdown-section td {
+            padding: 8px 14px;
+            border-top: 1px solid #1f2937;
+            color: #d6dde6;
+        }
+        .markdown-section tr:nth-child(even) { background: #0e151f; }
+
+        /* --- COPY-CODE BUTTON --- */
+        .docsify-copy-code-button {
+            background: #ff6b35 !important;
+            color: #0d1117 !important;
+            font-size: 0.72em !important;
+            font-weight: 600 !important;
+            padding: 4px 10px !important;
+            border-radius: 4px !important;
+            opacity: 0.85;
+            transition: opacity 0.15s ease;
+        }
+        .docsify-copy-code-button:hover { opacity: 1; }
+
+        /* --- SEARCH --- */
+        .search input[type="search"] {
+            background: #14181f !important;
+            color: #e6edf3 !important;
+            border: 1px solid #1f2937 !important;
+            border-radius: 6px !important;
+            padding: 8px 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 14px !important;
+        }
+        .search input[type="search"]:focus {
+            border-color: #ff6b35 !important;
+            outline: none !important;
+        }
+        .search .matching-post { border-bottom: 1px solid #1f2937 !important; }
+        .search .matching-post a { color: #c9d1d9 !important; }
+        .search .matching-post .search-keyword {
+            color: #ff6b35 !important;
+            background: transparent !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+        }
+        .search .clear-button { color: #9aa5b1 !important; }
+
+        /* --- HORIZONTAL RULES --- */
+        .markdown-section hr { border-top: 1px solid #1f2937; margin: 2.5em 0; }
+
+        /* --- SCROLLBAR (webkit) --- */
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2d3748; }
+
+        /* --- LOADING --- */
+        #app:not(.docsify-ready) {
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100vh; color: #9aa5b1; font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">Loading the mapping guide…</div>
+<script>
+window.$docsify = {
+    name:           '🗺️ VLCT Deathrun<br><small style="color:#9aa5b1;font-weight:400;font-size:13px">Mapping Guide</small>',
+    loadSidebar:    '_sidebar.md',
+    loadNavbar:     '_navbar.md',
+    subMaxLevel:    2,
+    // Collapsible top categories (For Mappers / For Modders). 1 = only the
+    // active category expanded; others stay collapsed until clicked.
+    sidebarDisplayLevel: 1,
+    auto2top:       true,
+    homepage:       'README.md',
+    notFoundPage:   true,
+
+    // Single-language (English only). Site lives at /en/.
+    alias: {
+        '/':                '/en/',
+        '/_sidebar.md':     '/en/_sidebar.md'
+    },
+
+    search: {
+        paths:       'auto',
+        placeholder: '🔍 Search the guide...',
+        noData:      'No results found.',
+        depth:       3,
+        hideOtherSidebarContent: false
+    },
+
+    copyCode: {
+        buttonText:  'Copy',
+        errorText:   'Error',
+        successText: 'Copied!'
+    }
+};
+</script>
+<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+</body>
+</html>
