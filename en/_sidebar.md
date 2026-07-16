@@ -18,3 +18,4 @@
 - [🛠️ For Modders](/en/modding.md)
   - [🖼️ Custom menus (.menu UI)](/en/modding-menus.md)
   - [🧪 Menus II — internals & assets](/en/modding-menus-advanced.md)
+  - [🔤 Custom fonts & chat emojis](/en/modding-fonts.md)
