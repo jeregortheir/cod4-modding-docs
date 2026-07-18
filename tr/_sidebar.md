@@ -1,16 +1,19 @@
 <!-- _sidebar.md (TR) -->
 
-- **Başlangıç**
-  - [🏠 Ana Sayfa / Hızlı Başlangıç](/tr/README.md)
-  - [📖 Temel bilgiler](/en/fundamentals.md)
-  - [⚠️ Kod yazmadan önce](/en/before-you-code.md)
+- [🏠 Ana Sayfa / Hızlı Başlangıç](/tr/README.md)
 
-- **Örnekler**
-  - [👋 Basics + Hello World](/en/basics.md)
-  - [💥 Tuzaklar](/en/traps.md)
-  - [⚔️ Odalar (Savaş ve Sır)](/en/rooms.md)
-  - [🎨 Efektler (FX, Ses, HUD)](/en/effects.md)
-  - [🚀 İleri seviye desenler](/en/advanced.md)
+- [🗺️ Haritacılar İçin](/tr/README.md)
+  - [📖 Temeller](/tr/fundamentals.md)
+  - [⚠️ Kod yazmadan önce](/tr/before-you-code.md)
+  - [👋 Temel + Hello World](/tr/basics.md)
+  - [💥 Tuzaklar](/tr/traps.md)
+  - [⚔️ Odalar (Savaş & Gizli)](/tr/rooms.md)
+  - [🎨 Efektler (FX, Ses, HUD)](/tr/effects.md)
+  - [🚀 İleri desenler](/tr/advanced.md)
+  - [📚 Ortak desenler](/tr/reference.md)
+  - [📥 İndirmeler](/tr/downloads.md)
 
-- **Referans**
-  - [📚 Yaygın desenler](/en/reference.md)
+- [🛠️ Modderlar İçin](/tr/modding.md)
+  - [🖼️ Özel menüler (.menu UI)](/tr/modding-menus.md)
+  - [🧪 Menüler II — içsel & assetler](/tr/modding-menus-advanced.md)
+  - [🔤 Özel fontlar & sohbet emojileri](/tr/modding-fonts.md)

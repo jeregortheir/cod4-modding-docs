@@ -18,7 +18,7 @@ This is general CoD4 modding knowledge - it applies to any CoD4 mod, not just on
 |---|---|
 | [🖼️ Custom menus (.menu UI)](/en/modding-menus) | Building HUD overlays and screens with `.menu` files - the dvar-driven UI system |
 | [🧪 Menus II — internals & assets](/en/modding-menus-advanced) | Menu internals, asset limits, IWI/material pipeline |
-| [🔤 Custom fonts & chat emojis](/en/modding-fonts) | Inline images in chat text - glyph tables, the font atlas, and shipping it via `mod.ff` so players need no client patch |
+| [🔤 Custom fonts & chat emojis](/en/modding-fonts) *(experimental)* | Inline images in chat text - glyph tables, the font atlas, and shipping it via `mod.ff` so players need no client patch |
 
 *(more chapters will be added over time)*
 

@@ -1,16 +1,19 @@
 <!-- _sidebar.md (DE) -->
 
-- **Loslegen**
-  - [🏠 Start / Schnellstart](/de/README.md)
-  - [📖 Grundlagen](/en/fundamentals.md)
-  - [⚠️ Bevor du programmierst](/en/before-you-code.md)
+- [🏠 Start / Schnellstart](/de/README.md)
 
-- **Beispiele**
-  - [👋 Basics + Hello World](/en/basics.md)
-  - [💥 Fallen](/en/traps.md)
-  - [⚔️ Räume (Kampf & Geheimnis)](/en/rooms.md)
-  - [🎨 Effekte (FX, Sound, HUD)](/en/effects.md)
-  - [🚀 Erweiterte Muster](/en/advanced.md)
+- [🗺️ Für Mapper](/de/README.md)
+  - [📖 Grundlagen](/de/fundamentals.md)
+  - [⚠️ Bevor du codest](/de/before-you-code.md)
+  - [👋 Basics + Hello World](/de/basics.md)
+  - [💥 Fallen](/de/traps.md)
+  - [⚔️ Räume (Kampf & Geheim)](/de/rooms.md)
+  - [🎨 Effekte (FX, Sound, HUD)](/de/effects.md)
+  - [🚀 Fortgeschrittene Muster](/de/advanced.md)
+  - [📚 Übliche Muster](/de/reference.md)
+  - [📥 Downloads](/de/downloads.md)
 
-- **Referenz**
-  - [📚 Häufige Muster](/en/reference.md)
+- [🛠️ Für Modder](/de/modding.md)
+  - [🖼️ Eigene Menüs (.menu UI)](/de/modding-menus.md)
+  - [🧪 Menüs II — Interna & Assets](/de/modding-menus-advanced.md)
+  - [🔤 Eigene Fonts & Chat-Emojis](/de/modding-fonts.md)

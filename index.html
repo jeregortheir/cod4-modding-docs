@@ -273,10 +273,14 @@ window.$docsify = {
     homepage:       'README.md',
     notFoundPage:   true,
 
-    // Single-language (English only). Site lives at /en/.
+    // Multi-language. Content lives under /en/, /pl/, /de/, /es/, /fr/, /ru/, /br/, /tr/.
+    // Each language folder carries its own _sidebar.md and _navbar.md; docsify loads
+    // them relative to the current route. The root (/) and any bare sidebar/navbar
+    // request fall back to English.
     alias: {
-        '/':                '/en/',
-        '/_sidebar.md':     '/en/_sidebar.md'
+        '/':            '/en/README.md',
+        '/_sidebar.md': '/en/_sidebar.md',
+        '/_navbar.md':  '/en/_navbar.md'
     },
 
     search: {
